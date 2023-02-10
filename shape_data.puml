@@ -1,0 +1,44 @@
+@startuml
+interface IShape {
+}
+abstract class AShape {
+~ CartPt loc
+~ String color
+}
+class Circle {
+~ int radius
+}
+class Square {
+~ int size
+}
+class Rect {
+~ int width
+~ int height
+}
+class CartPt {
+~ int x
+~ int y
++ double distTo0()
++ double distTo(CartPt)
+}
+class ExamplesShapes {
+~ CartPt pt1
+~ CartPt pt2
+~ CartPt pt3
+~ IShape c1
+~ IShape c2
+~ IShape c3
+~ IShape s1
+~ IShape s2
+~ IShape s3
+~ IShape r1
+~ IShape r2
+~ IShape r3
+}
+
+
+IShape <|.. AShape
+AShape <|-- Circle
+AShape <|-- Square
+AShape <|-- Rect
+@enduml

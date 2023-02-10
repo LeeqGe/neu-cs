@@ -1,0 +1,17 @@
+@startuml
+interface com.leeq.neu.ancentor.IAT {
+~ IAT youngerIAT(IAT)
+}
+class com.leeq.neu.ancentor.Unknown {
++ IAT youngerIAT(IAT)
+}
+class com.leeq.neu.ancentor.Persion {
+~ int yob
+~ IAT youngerIATHelp(IAT,int)
++ IAT youngerIAT(IAT)
+}
+
+
+com.leeq.neu.ancentor.IAT <|.. com.leeq.neu.ancentor.Unknown
+com.leeq.neu.ancentor.IAT <|.. com.leeq.neu.ancentor.Persion
+@enduml

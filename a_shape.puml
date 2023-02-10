@@ -1,0 +1,81 @@
+@startuml
+interface com.leeq.neu.shape.a.IShape {
++ double area()
++ double distTo0()
++ IShape grow(int)
++ boolean biggerThan(IShape)
++ boolean contains(CartPt)
+}
+abstract class com.leeq.neu.shape.a.AShape {
+~ CartPt loc
+~ String color
++ {abstract}double area()
++ double distTo0()
++ {abstract}IShape grow(int)
++ boolean biggerThan(IShape)
++ {abstract}boolean contains(CartPt)
+}
+class com.leeq.neu.shape.a.Circle {
+~ int radius
++ double area()
++ double distTo0()
++ IShape grow(int)
++ boolean contains(CartPt)
+}
+class com.leeq.neu.shape.a.Square {
+~ int size
++ double area()
++ IShape grow(int)
++ boolean contains(CartPt)
+}
+class com.leeq.neu.shape.a.Rect {
+~ int width
+~ int height
++ double area()
++ IShape grow(int)
++ boolean contains(CartPt)
+}
+class com.leeq.neu.shape.a.CartPt {
+~ int x
+~ int y
++ double distTo0()
++ double distTo(CartPt)
+}
+class com.leeq.neu.shape.a.ExamplesShapes {
+~ CartPt pt1
+~ CartPt pt2
+~ CartPt pt3
+~ IShape c1
+~ IShape c2
+~ IShape c3
+~ IShape s1
+~ IShape s2
+~ IShape s3
+~ IShape r1
+~ IShape r2
+~ IShape r3
+~ boolean testDistTo0(Tester)
+~ boolean testDistTo(Tester)
+~ boolean testCircleArea(Tester)
+~ boolean testSquareArea(Tester)
+~ boolean testRectArea(Tester)
+~ boolean testCircleDistTo0(Tester)
+~ boolean testSquareDistTo0(Tester)
+~ boolean testRectDistTo0(Tester)
+~ boolean testCircleGrow(Tester)
+~ boolean testSquareGrow(Tester)
+~ boolean testRectGrow(Tester)
+~ boolean testCircleBiggerThan(Tester)
+~ boolean testSquareBiggerThan(Tester)
+~ boolean testRectBiggerThan(Tester)
+~ boolean testCircleContains(Tester)
+~ boolean testSquareContains(Tester)
+~ boolean testRectContains(Tester)
+}
+
+
+com.leeq.neu.shape.a.IShape <|.. com.leeq.neu.shape.a.AShape
+com.leeq.neu.shape.a.AShape <|-- com.leeq.neu.shape.a.Circle
+com.leeq.neu.shape.a.AShape <|-- com.leeq.neu.shape.a.Square
+com.leeq.neu.shape.a.AShape <|-- com.leeq.neu.shape.a.Rect
+@enduml
