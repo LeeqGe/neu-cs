@@ -7,4 +7,9 @@ public class Unknown implements IAT {
   public IAT youngerIAT(IAT other) {
     return other;
   }
+  
+  @Override
+  public IAT youngerIATHelp(IAT other, int otherYob) {
+    return other;
+  }
 }

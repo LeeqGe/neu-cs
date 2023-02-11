@@ -5,4 +5,8 @@ package com.leeq.neu.ancestor;
  */
 public interface IAT {
   IAT youngerIAT(IAT other);
+  
+  IAT youngerIATHelp(IAT other, int otherYob);
+  
+  
 }
