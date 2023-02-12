@@ -1,6 +1,5 @@
 package com.leeq.neu;// CS 2510, Assignment 3
 
-import com.leeq.neu.abs.ConsLoString2;
 import tester.*;
 
 // to represent a list of Strings
@@ -71,7 +70,7 @@ class MtLoString implements ILoString {
     
   // sort helper
   public ILoString insert(String given) {
-    return new ConsLoString2(given, new MtLoString());
+    return new ConsLoString(given, new MtLoString());
     
   }
     
@@ -102,7 +101,7 @@ class MtLoString implements ILoString {
     
   // merge helper 
   public ILoString mergeHelper(String given) {
-    return new ConsLoString2(given, this);
+    return new ConsLoString(given, this);
     
   }
     
@@ -114,7 +113,7 @@ class MtLoString implements ILoString {
     
   // gets the last String 
   public ILoString revert(String given) {
-    return new ConsLoString2(given, this);
+    return new ConsLoString(given, this);
     
   }
     
@@ -224,9 +223,9 @@ class ConsLoString implements ILoString {
    */
     
     if (this.first.toLowerCase().compareTo(given.toLowerCase()) >= 0) {
-      return new ConsLoString2(given, this);
+      return new ConsLoString(given, this);
     } else {
-      return new ConsLoString2(this.first, this.rest.insert(given));
+      return new ConsLoString(this.first, this.rest.insert(given));
     } 
   }
   
@@ -290,7 +289,7 @@ class ConsLoString implements ILoString {
     ... given.interleave(ILoString given) ...                                 -- String
    */
     
-    return new ConsLoString2(this.first, given.interleave(this.rest));
+    return new ConsLoString(this.first, given.interleave(this.rest));
     
   }
     
@@ -347,9 +346,9 @@ class ConsLoString implements ILoString {
    */
     
     if (this.first.toLowerCase().compareTo(given.toLowerCase()) <= 0 ) {
-      return new ConsLoString2(this.first, this.rest.mergeHelper(given)); }
+      return new ConsLoString(this.first, this.rest.mergeHelper(given)); }
     else { 
-      return new ConsLoString2(given, this.rest.mergeHelper(this.first)); }
+      return new ConsLoString(given, this.rest.mergeHelper(this.first)); }
   }   
     
   // reverses the order of the list 
@@ -381,7 +380,7 @@ class ConsLoString implements ILoString {
     ... given.toLowerCase() ...                                 -- String
    */
     
-    return new ConsLoString2(this.first, this.rest.revert(given));
+    return new ConsLoString(this.first, this.rest.revert(given));
    
   }
     
@@ -435,118 +434,118 @@ class ExamplesStrings {
   
   ILoString empty = new MtLoString();
   
-  ILoString mary = new ConsLoString2("Mary ",
-      new ConsLoString2("had ",
-          new ConsLoString2("a ",
-              new ConsLoString2("little ",
-                  new ConsLoString2("lamb.", new MtLoString())))));
+  ILoString mary = new ConsLoString("Mary ",
+      new ConsLoString("had ",
+          new ConsLoString("a ",
+              new ConsLoString("little ",
+                  new ConsLoString("lamb.", new MtLoString())))));
   
-  ILoString marySort = new ConsLoString2("a ",
-      new ConsLoString2("had ",
-          new ConsLoString2("lamb.",
-              new ConsLoString2("little ",
-                  new ConsLoString2("Mary ", new MtLoString())))));
+  ILoString marySort = new ConsLoString("a ",
+      new ConsLoString("had ",
+          new ConsLoString("lamb.",
+              new ConsLoString("little ",
+                  new ConsLoString("Mary ", new MtLoString())))));
   
-  ILoString abc = new ConsLoString2("a",
-      new ConsLoString2("b",
-          new ConsLoString2("c",
-              new ConsLoString2("d",
-                  new ConsLoString2("e", new MtLoString())))));
+  ILoString abc = new ConsLoString("a",
+      new ConsLoString("b",
+          new ConsLoString("c",
+              new ConsLoString("d",
+                  new ConsLoString("e", new MtLoString())))));
   
-  ILoString abcz = new ConsLoString2("a",
-      new ConsLoString2("b",
-          new ConsLoString2("c",
-              new ConsLoString2("d",
-                  new ConsLoString2("e",
-                      new ConsLoString2("z", new MtLoString()))))));
+  ILoString abcz = new ConsLoString("a",
+      new ConsLoString("b",
+          new ConsLoString("c",
+              new ConsLoString("d",
+                  new ConsLoString("e",
+                      new ConsLoString("z", new MtLoString()))))));
   
-  ILoString abcInterleave = new ConsLoString2("a",
-      new ConsLoString2("Mary ",
-          new ConsLoString2("b",
-              new ConsLoString2("had ",
-                  new ConsLoString2("c",
-                      new ConsLoString2("a ",
-                          new ConsLoString2("d",
-                              new ConsLoString2("little ",
-                                  new ConsLoString2("e",
-                                      new ConsLoString2("lamb.",
+  ILoString abcInterleave = new ConsLoString("a",
+      new ConsLoString("Mary ",
+          new ConsLoString("b",
+              new ConsLoString("had ",
+                  new ConsLoString("c",
+                      new ConsLoString("a ",
+                          new ConsLoString("d",
+                              new ConsLoString("little ",
+                                  new ConsLoString("e",
+                                      new ConsLoString("lamb.",
                                           new MtLoString()))))))))));
   
-  ILoString abcMary = new ConsLoString2("a",
-      new ConsLoString2("a ",
-          new ConsLoString2("b",
-              new ConsLoString2("c",
-                  new ConsLoString2("d",
-                      new ConsLoString2("e",
-                          new ConsLoString2("had ",
-                              new ConsLoString2("lamb.",
-                                  new ConsLoString2("little ",
-                                      new ConsLoString2("Mary ",
+  ILoString abcMary = new ConsLoString("a",
+      new ConsLoString("a ",
+          new ConsLoString("b",
+              new ConsLoString("c",
+                  new ConsLoString("d",
+                      new ConsLoString("e",
+                          new ConsLoString("had ",
+                              new ConsLoString("lamb.",
+                                  new ConsLoString("little ",
+                                      new ConsLoString("Mary ",
                                           new MtLoString()))))))))));
-  ILoString edc = new ConsLoString2("e",
-      new ConsLoString2("d",
-          new ConsLoString2("c",
-              new ConsLoString2("b",
-                  new ConsLoString2("a", new MtLoString())))));
+  ILoString edc = new ConsLoString("e",
+      new ConsLoString("d",
+          new ConsLoString("c",
+              new ConsLoString("b",
+                  new ConsLoString("a", new MtLoString())))));
   
-  ILoString aabb = new ConsLoString2("a",
-      new ConsLoString2("a",
-          new ConsLoString2("b",
-              new ConsLoString2("b",
-                  new ConsLoString2("c",
-                      new ConsLoString2("c", new MtLoString()))))));
+  ILoString aabb = new ConsLoString("a",
+      new ConsLoString("a",
+          new ConsLoString("b",
+              new ConsLoString("b",
+                  new ConsLoString("c",
+                      new ConsLoString("c", new MtLoString()))))));
   
-  ILoString abca = new ConsLoString2("a",
-      new ConsLoString2("b",
-          new ConsLoString2("c",
-              new ConsLoString2("d",
-                  new ConsLoString2("e",
-                      new ConsLoString2("a", new MtLoString()))))));
+  ILoString abca = new ConsLoString("a",
+      new ConsLoString("b",
+          new ConsLoString("c",
+              new ConsLoString("d",
+                  new ConsLoString("e",
+                      new ConsLoString("a", new MtLoString()))))));
   
-  ILoString abb = new ConsLoString2("a",
-      new ConsLoString2("b",
-          new ConsLoString2("b",
-              new ConsLoString2("c",
-                  new ConsLoString2("d",
-                      new ConsLoString2("e", new MtLoString()))))));
+  ILoString abb = new ConsLoString("a",
+      new ConsLoString("b",
+          new ConsLoString("b",
+              new ConsLoString("c",
+                  new ConsLoString("d",
+                      new ConsLoString("e", new MtLoString()))))));
   
-  ILoString aac = new ConsLoString2("a",
-      new ConsLoString2("a",
-          new ConsLoString2("b",
-              new ConsLoString2("b",
-                  new ConsLoString2("c", new MtLoString())))));
+  ILoString aac = new ConsLoString("a",
+      new ConsLoString("a",
+          new ConsLoString("b",
+              new ConsLoString("b",
+                  new ConsLoString("c", new MtLoString())))));
   
-  ILoString aca = new ConsLoString2("a",
-      new ConsLoString2("b",
-          new ConsLoString2("c",
-              new ConsLoString2("b",
-                  new ConsLoString2("a", new MtLoString())))));
+  ILoString aca = new ConsLoString("a",
+      new ConsLoString("b",
+          new ConsLoString("c",
+              new ConsLoString("b",
+                  new ConsLoString("a", new MtLoString())))));
   
-  ILoString aaa = new ConsLoString2("a",
-      new ConsLoString2("a",
-          new ConsLoString2("a",
-              new ConsLoString2("a",
-                  new ConsLoString2("a", new MtLoString())))));
+  ILoString aaa = new ConsLoString("a",
+      new ConsLoString("a",
+          new ConsLoString("a",
+              new ConsLoString("a",
+                  new ConsLoString("a", new MtLoString())))));
   
-  ILoString mPalin = new ConsLoString2("Mary",
-      new ConsLoString2("had",
-          new ConsLoString2("a",
-              new ConsLoString2("had",
-                  new ConsLoString2("Mary", new MtLoString())))));
+  ILoString mPalin = new ConsLoString("Mary",
+      new ConsLoString("had",
+          new ConsLoString("a",
+              new ConsLoString("had",
+                  new ConsLoString("Mary", new MtLoString())))));
   
-  ILoString mPalin1 = new ConsLoString2("Mary",
-      new ConsLoString2("had",
-          new ConsLoString2("a",
-              new ConsLoString2("a",
-                  new ConsLoString2("had",
-                      new ConsLoString2("Mary", new MtLoString()))))));
+  ILoString mPalin1 = new ConsLoString("Mary",
+      new ConsLoString("had",
+          new ConsLoString("a",
+              new ConsLoString("a",
+                  new ConsLoString("had",
+                      new ConsLoString("Mary", new MtLoString()))))));
   
-  ILoString aabbce = new ConsLoString2("a",
-      new ConsLoString2("a",
-          new ConsLoString2("b",
-              new ConsLoString2("b",
-                  new ConsLoString2("c",
-                      new ConsLoString2("e", new MtLoString()))))));
+  ILoString aabbce = new ConsLoString("a",
+      new ConsLoString("a",
+          new ConsLoString("b",
+              new ConsLoString("b",
+                  new ConsLoString("c",
+                      new ConsLoString("e", new MtLoString()))))));
   
   // test the method combine for the lists of Strings
   boolean testCombine(Tester t) {
@@ -565,7 +564,7 @@ class ExamplesStrings {
   //test the method insert for the lists of Strings
   boolean testInsert(Tester t) {
     return t.checkExpect(this.abc.insert("z"), this.abcz)
-        && t.checkExpect(this.empty.insert("z"), new ConsLoString2("z", this.empty));
+        && t.checkExpect(this.empty.insert("z"), new ConsLoString("z", this.empty));
  
   }
     
@@ -601,7 +600,7 @@ class ExamplesStrings {
   // test the method mergeHelper for the lists of Strings
   boolean testMergeHelper(Tester t) {
     return t.checkExpect(this.abc.mergeHelper("b"), this.abb)
-        && t.checkExpect(this.empty.mergeHelper("b"), new ConsLoString2("b", this.empty));
+        && t.checkExpect(this.empty.mergeHelper("b"), new ConsLoString("b", this.empty));
    
   }
     
@@ -615,7 +614,7 @@ class ExamplesStrings {
   //test the method revert for the lists of Strings
   boolean testRevert(Tester t) {
     return t.checkExpect(this.abc.revert("a"), this.abca)
-        && t.checkExpect(this.empty.revert("a"), new ConsLoString2("a", this.empty));
+        && t.checkExpect(this.empty.revert("a"), new ConsLoString("a", this.empty));
   
   }
     
