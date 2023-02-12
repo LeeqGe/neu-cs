@@ -1,0 +1,23 @@
+@startuml
+class com.leeq.neu.abs.ConsLoString2 {
+~ String first
+~ IList<String> rest
++ IList<String> filter(IPred<String>)
++ IList<String> sort(IComparator<String>)
++ IList<String> insertBy(IComparator,String)
+}
+interface com.leeq.neu.abs.IList {
+~ IList<T> filter(IPred<T>)
+~ IList<T> sort(IComparator<T>)
+~ IList<T> insertBy(IComparator,T)
+}
+interface com.leeq.neu.abs.IPred {
+~ boolean apply(T)
+}
+interface com.leeq.neu.abs.IComparator {
+~ int comparator(T,T)
+}
+
+
+com.leeq.neu.abs.IList <|.. com.leeq.neu.abs.ConsLoString2
+@enduml
