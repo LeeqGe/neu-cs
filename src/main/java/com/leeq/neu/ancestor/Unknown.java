@@ -2,6 +2,10 @@ package com.leeq.neu.ancestor;
 
 public class Unknown implements IAT {
   
+  @Override
+  public boolean containsName(String name) {
+    return false;
+  }
   
   @Override
   public IAT youngerIAT(IAT other) {
