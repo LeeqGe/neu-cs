@@ -1,3 +1,5 @@
+package com.leeq.neu.shape.onlydata;
+
 import tester.*;
 
 /**

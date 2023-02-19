@@ -1,4 +1,4 @@
-package com.leeq.neu.abs;
+package com.leeq.neu.behavior;
 
 /**
  * Abstracting over types

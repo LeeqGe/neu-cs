@@ -1,4 +1,4 @@
-package com.leeq.neu;// CS 2510, Assignment 3
+package com.leeq.neu.lst;// CS 2510, Assignment 3
 
 import tester.*;
 
